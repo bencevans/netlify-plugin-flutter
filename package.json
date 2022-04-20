@@ -32,7 +32,7 @@
   },
   "ava": {
     "verbose": true,
-    "timeout": "100s",
+    "timeout": "5m",
     "environmentVariables": {
       "FORCE_COLOR": "1"
     }
