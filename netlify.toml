@@ -1,0 +1,20 @@
+##############################
+# Netlify configuration file #
+##############################
+
+# List of Build plugins
+[[plugins]]
+# Use the current plugin in builds for testing and debugging.
+# Local path to the plugin.
+package = "."
+  # Plugin configuration
+   [plugins.inputs]
+   channel = "beta"
+
+[build]
+command = "cd app && flutter build web --release"
+publish = "app/build/web"
+
+
+[build.environment]
+NODE_VERSION = "12.20.0"
