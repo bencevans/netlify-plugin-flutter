@@ -26,7 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: rm -rf ~/flutter
+    - run: rm -rf /home/runner/flutter
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
