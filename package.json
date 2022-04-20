@@ -19,7 +19,10 @@
   ],
   "author": "Ben Evans <ben@bluechimp.io>",
   "license": "MIT",
-  "repository": "bencevans/netlify-flutter-plugin",
+  "repository": "bencevans/netlify-plugin-flutter",
+  "bugs": {
+    "url": "https://github.com/bencevans/netlify-plugin-flutter/issues"
+  },
   "directories": {
     "lib": "src",
     "test": "test"
