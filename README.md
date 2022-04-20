@@ -9,7 +9,7 @@ Please install this plugin from the Netlify app.
 
 Manual installation:
 
-    $ npm install -g netlify-plugin-flutter
+    $ npm install -D netlify-plugin-flutter
 
 Add the following to your Netlify site's `netlify.toml` file:
 
