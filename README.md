@@ -7,6 +7,26 @@ adding support to build [Flutter](https://flutter.dev) web apps to Netlify.
 
 Please install this plugin from the Netlify app.
 
+Manual installation:
+
+    $ npm install -g netlify-plugin-flutter
+
+Add the following to your Netlify site's `netlify.toml` file:
+
+```yaml
+[[plugins]]
+
+  package = "netlify-plugin-flutter"
+
+   [plugins.inputs]
+    channel = "stable"
+
+[build]
+
+command = "flutter build web --release"
+publish = "build/web"
+```
+
 ## Configuration
 
 The following `inputs` options are available.
@@ -17,14 +37,3 @@ The following `inputs` options are available.
 
 These options should be written in the `netlify.toml` file as in the example
 bellow.
-
-## Example `netlify.toml`
-
-```yml
-[[plugins]]
-
-  package = "netlify-plugin-flutter"
-
-   [plugins.inputs]
-    channel = "stable"
-```
