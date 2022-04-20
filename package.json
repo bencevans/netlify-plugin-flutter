@@ -1,6 +1,6 @@
 {
   "name": "netlify-plugin-flutter",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Netlify Build plugin - Build and Deploy Flutter Web Applications on Netlify",
   "type": "module",
   "exports": "./src/index.js",
