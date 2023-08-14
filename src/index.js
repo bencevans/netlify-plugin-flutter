@@ -55,10 +55,10 @@ export const onPreBuild = async function ({
   console.log('🪄 Adding Flutter to PATH')
   process.env['PATH'] = process.env['PATH'] + ':' + flutterBinPath
 
-  console.log('🚀 Setting Flutter Channel to ' + targetChannel)
-  await run('flutter', ['channel', targetChannel])
-
   if (shouldUpgrade) {
+    console.log('🚀 Setting Flutter Channel to ' + targetChannel)
+    await run('flutter', ['channel', targetChannel])
+
     console.log('🚀 Upgrading Flutter')
     await run('flutter', ['upgrade'])
   }
