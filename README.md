@@ -18,8 +18,8 @@ Add the following to your Netlify site's `netlify.toml` file:
 
   package = "netlify-plugin-flutter"
 
-   [plugins.inputs]
-    channel = "stable"
+  [plugins.inputs]
+  channel = "stable"
 
 [build]
 
@@ -34,6 +34,7 @@ The following `inputs` options are available.
 | Name      | Type   | Default  | Description                 |
 | --------- | ------ | -------- | --------------------------- |
 | `channel` | string | `stable` | Flutter channel to install. |
+| `version` | string | null | Specific Flutter version to install instead of using a channel |
 
 These options should be written in the `netlify.toml` file as in the example
 bellow.

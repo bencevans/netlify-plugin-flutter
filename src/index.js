@@ -21,15 +21,35 @@ export const onPreBuild = async function ({
   },
 }) {
   const targetChannel = inputs.channel || 'stable'
+  const flutterVersion = inputs.version
+  let shouldUpgrade = false
 
-  console.log('⚡️ Downloading Flutter Stable SDK')
-  await run('git', [
-    'clone',
-    'https://github.com/flutter/flutter.git',
-    '-b',
-    'stable',
-    process.env['HOME'] + '/flutter',
-  ])
+  if (flutterVersion != null) {
+    console.log('⚡️ Downloading Flutter SDK ' + flutterVersion)
+    await run('git', [
+      'clone',
+      '--depth',
+      '1',
+      'https://github.com/flutter/flutter.git',
+      '-b',
+      flutterVersion,
+      process.env['HOME'] + '/flutter',
+    ])
+  } else {
+    shouldUpgrade = true
+
+    console.log('⚡️ Downloading Flutter Stable SDK')
+    await run('git', [
+      'clone',
+      '--depth',
+      '1',
+      'https://github.com/flutter/flutter.git',
+      '-b',
+      'stable',
+      process.env['HOME'] + '/flutter',
+    ])
+  }
+
   console.log('✅ Flutter SDK downloaded')
 
   console.log('🪄 Adding Flutter to PATH')
@@ -38,8 +58,10 @@ export const onPreBuild = async function ({
   console.log('🚀 Setting Flutter Channel to ' + targetChannel)
   await run('flutter', ['channel', targetChannel])
 
-  console.log('🚀 Upgrading Flutter')
-  await run('flutter', ['upgrade'])
+  if (shouldUpgrade) {
+    console.log('🚀 Upgrading Flutter')
+    await run('flutter', ['upgrade'])
+  }
 
   status.show({ summary: 'Success!' })
 }
