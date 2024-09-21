@@ -9,7 +9,7 @@
 package = "."
 # Plugin configuration
 [plugins.inputs]
-channel = "beta"
+channel = "3.24.1"
 
 [build]
 command = "cd app && flutter build web --release"
