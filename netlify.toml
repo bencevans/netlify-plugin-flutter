@@ -7,9 +7,9 @@
 # Use the current plugin in builds for testing and debugging.
 # Local path to the plugin.
 package = "."
-  # Plugin configuration
-   [plugins.inputs]
-   channel = "beta"
+# Plugin configuration
+[plugins.inputs]
+channel = "beta"
 
 [build]
 command = "cd app && flutter build web --release"
@@ -17,4 +17,4 @@ publish = "app/build/web"
 
 
 [build.environment]
-NODE_VERSION = "12.20.0"
+NODE_VERSION = "20"
