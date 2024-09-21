@@ -27,7 +27,7 @@ export const onPreBuild = async function ({
     'clone',
     'https://github.com/flutter/flutter.git',
     '-b',
-    'stable',
+    targetChannel,
     process.env['HOME'] + '/flutter',
   ])
   console.log('✅ Flutter SDK downloaded')
@@ -35,11 +35,8 @@ export const onPreBuild = async function ({
   console.log('🪄 Adding Flutter to PATH')
   process.env['PATH'] = process.env['PATH'] + ':' + flutterBinPath
 
-  console.log('🚀 Setting Flutter Channel to ' + targetChannel)
-  await run('flutter', ['channel', targetChannel])
+  console.log('🔨 Running flutter doctor')
+  await run('flutter', ['doctor'])
 
-  console.log('🚀 Upgrading Flutter')
-  await run('flutter', ['upgrade'])
-
-  status.show({ summary: 'Success!' })
+  status.show({ summary: 'Flutter SDK installed' })
 }
