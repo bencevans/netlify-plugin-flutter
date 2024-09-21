@@ -35,5 +35,8 @@ export const onPreBuild = async function ({
   console.log('🪄 Adding Flutter to PATH')
   process.env['PATH'] = process.env['PATH'] + ':' + flutterBinPath
 
-  status.show({ summary: 'Success!' })
+  console.log('🔨 Running flutter doctor')
+  await run('flutter', ['doctor'])
+
+  status.show({ summary: 'Flutter SDK installed' })
 }
